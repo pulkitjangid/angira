@@ -6,11 +6,11 @@ const dotenv = require('dotenv')
 dotenv.config();
 app.use(express.json())
 const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 587,
+    host: process.env.HOST,
+    port: process.env.PORT_MAIL,
     auth: {
-        user: 'pulkitjangid420@gmail.com',
-        pass: 'qazwsx@123'
+        user: process.env.USER,
+        pass: process.env.PASSWORD
     },
 });
 
