@@ -10,7 +10,7 @@ const transporter = nodemailer.createTransport({
     port: process.env.PORT_MAIL,
     auth: {
         user: process.env.USER,
-        pass: process.env.PASSWORD
+        pass: process.env.PASSWORD  
     },
 });
 
@@ -58,6 +58,6 @@ app.post('/test',(req,res)=>{
     console.log(req.body);
     res.send("Hi")
 })
-app.listen(process.env.PORT,()=>{
+app.listen(process.env.PORT || 5000,()=>{
     console.log(`Listening on port ${process.env.PORT}`);
 })
