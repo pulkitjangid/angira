@@ -2,7 +2,8 @@ const express = require('express')
 const app =express()
 const path = require('path')
 const nodemailer = require('nodemailer');
-const dotenv = require('dotenv')
+const dotenv = require('dotenv');
+const { resolveSoa } = require('dns');
 dotenv.config();
 
 app.use(express.json())
@@ -30,6 +31,9 @@ app.get('/contacts',(req,res)=>{
 })
 app.get('/about-us',(req,res)=>{
     res.sendFile(path.join(__dirname+'/about-us.html'));
+})
+app.get('/collections',(req,res)=>{
+    res.sendFile(path.join(__dirname+'/collections.html'))
 })
 app.post('/send',(req,res)=>{
     console.log(req.body);
