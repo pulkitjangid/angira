@@ -4,7 +4,9 @@ const path = require('path')
 const nodemailer = require('nodemailer');
 const dotenv = require('dotenv')
 dotenv.config();
+
 app.use(express.json())
+app.use(express.urlencoded({extended: false}))
 const transporter = nodemailer.createTransport({
     host : process.env.HOST,
     port : process.env.PORT_MAIL,
@@ -33,14 +35,14 @@ app.post('/send',(req,res)=>{
     console.log(req.body);
     console.log('In send');
         const message = {
-            from: 'artigiano_@hotmail.com', 
+            from: 'pulkitjangid420@gmail.com', 
             to: 'pulkitjangid420@gmail.com',        
             subject: 'Enquiry about the company',       
-            text:`
-                  Name :- ${req.body.name}
-                  Phone :-  ${req.body.phone}
-                  Message :-  ${req.body.message}
-                  Email Id :-${req.body.email}
+            html:`
+                  Name :- ${req.body.name}<br>
+                  Phone :-  ${req.body.phone}<br>
+                  Message :-  ${req.body.message}<br>
+                  Email Id :-${req.body.email}<br>
                   `,
             // attachments: [
             //     { // Use a URL as an attachment
