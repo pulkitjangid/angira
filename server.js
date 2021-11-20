@@ -33,9 +33,9 @@ app.post('/send',(req,res)=>{
     console.log(req.body);
     console.log('In send');
         const message = {
-            from: 'artigiano_@hotmail.com', // Sender address
-            to: 'pulkitjangid420@gmail.com',         // List of recipients
-            subject: 'Enquiry about the company', // Subject line
+            from: 'artigiano_@hotmail.com', 
+            to: 'pulkitjangid420@gmail.com',        
+            subject: 'Enquiry about the company',       
             text:`
                   Name :- ${req.body.name}
                   Phone :-  ${req.body.phone}
