@@ -6,8 +6,8 @@ const dotenv = require('dotenv')
 dotenv.config();
 app.use(express.json())
 const transporter = nodemailer.createTransport({
-    host: process.env.HOST,
-    port: process.env.PORT_MAIL,
+    host : process.env.HOST,
+    port : process.env.PORT_MAIL,
     auth: {
         user: process.env.USER,
         pass: process.env.PASSWORD  
@@ -33,17 +33,21 @@ app.post('/send',(req,res)=>{
     console.log(req.body);
     console.log('In send');
         const message = {
-            from: 'pulkitjangid420@gmail.com', // Sender address
+            from: 'artigiano_@hotmail.com', // Sender address
             to: 'pulkitjangid420@gmail.com',         // List of recipients
             subject: 'Enquiry about the company', // Subject line
-            html: `<h4>Name :- ${req.body.name}<br><h4>Phone :-  ${req.body.phone}
-                    <br><h4>Message :-  ${req.body.message}<br><h4>Email Id :-${req.body.email}</h4>`,
-            attachments: [
-                { // Use a URL as an attachment
-                  filename: 'angira.png',
-                  path: 'logo.jpeg'
-              }
-            ]
+            text:`
+                  Name :- ${req.body.name}
+                  Phone :-  ${req.body.phone}
+                  Message :-  ${req.body.message}
+                  Email Id :-${req.body.email}
+                  `,
+            // attachments: [
+            //     { // Use a URL as an attachment
+            //       filename: 'angira.png',
+            //       path: './public/images/art_logo.png'
+            //   }
+            // ]
         };
         transporter.sendMail(message, function(err, info) {
             if (err) {
