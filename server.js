@@ -48,12 +48,12 @@ app.post('/send',(req,res)=>{
                   Message :-  ${req.body.message}<br>
                   Email Id :-${req.body.email}<br>
                   `,
-            // attachments: [
-            //     { // Use a URL as an attachment
-            //       filename: 'angira.png',
-            //       path: './public/images/art_logo.png'
-            //   }
-            // ]
+            attachments: [
+                { // Use a URL as an attachment
+                  filename: 'artigiano.png',
+                  path: './public/images/art_logo.png'
+              }
+            ]
         };
         transporter.sendMail(message, function(err, info) {
             if (err) {
